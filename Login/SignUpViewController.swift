@@ -54,6 +54,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    func isValidEmail(email: String)->Bool {
+        // RegEx Source: emailregex.com
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email)
+    }
+    
     @IBAction func toggleShowPassword(_ sender: UISwitch) {
         if sender.isOn {
             setSecureTextEntryTo(false)
@@ -86,6 +93,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 errorMessageText += "repeated password"
             }
             showError(message: errorMessageText, title: "Missing Fields!")
+        }
+        else if !isValidEmail(email: email){
+            errorMessageText = "Invalid Email"
+            showError(message: errorMessageText, title: "Invalid Input!")
         }
         else if password != repeatPassword {
             errorMessageText = "Passwords do not match"
