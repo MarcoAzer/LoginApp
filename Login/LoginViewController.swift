@@ -39,23 +39,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let password = passwordTextField.text!
         
         if username == "" || password == "" {
-            var errorMessageText = ""
+            var errorMessageText = "Please insert your "
             if username == "" {
-                errorMessageText = "Please fill in username"
+                errorMessageText = "username"
             }
             else if password == "" {
-                errorMessageText = "Please fill in password"
+                errorMessageText = "password"
             }
-            let errorMessage = UIAlertController(title: "Missing Fields", message: errorMessageText, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            errorMessage.addAction(cancelAction)
-            self.present(errorMessage, animated: true, completion: nil)
+            ErrorMessage.showError(self, message: errorMessageText, title: "Missing Field!")
         }
         else{
-            // TODO
-            // Login if correct username and password
-            // Show error message if failed to login
-            print("Logging In")
+            ErrorMessage.showError(self, message: "Logging in", title: "")
         }
     }
     

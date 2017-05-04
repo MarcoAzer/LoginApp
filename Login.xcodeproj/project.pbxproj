@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE9E2E3E1EBBC82A0013F393 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9E2E3D1EBBC82A0013F393 /* EmailValidation.swift */; };
+		DE9E2E401EBBC8E60013F393 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9E2E3F1EBBC8E60013F393 /* ErrorMessage.swift */; };
 		DEA8A2621EB2567C00BC6F2D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8A2611EB2567C00BC6F2D /* SignUpViewController.swift */; };
 		DEA8A2641EB2C7E200BC6F2D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA8A2631EB2C7E200BC6F2D /* ForgotPasswordViewController.swift */; };
 		DECCD68E1EAF01C4001BD794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCD68D1EAF01C4001BD794 /* AppDelegate.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE9E2E3D1EBBC82A0013F393 /* EmailValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
+		DE9E2E3F1EBBC8E60013F393 /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		DEA8A2611EB2567C00BC6F2D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DEA8A2631EB2C7E200BC6F2D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		DECCD68A1EAF01C4001BD794 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE9E2E411EBBF41D0013F393 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				DE9E2E3D1EBBC82A0013F393 /* EmailValidation.swift */,
+				DE9E2E3F1EBBC8E60013F393 /* ErrorMessage.swift */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		DECCD6811EAF01C4001BD794 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +79,7 @@
 				DECCD6991EAF01C4001BD794 /* Info.plist */,
 				DEA8A2611EB2567C00BC6F2D /* SignUpViewController.swift */,
 				DEA8A2631EB2C7E200BC6F2D /* ForgotPasswordViewController.swift */,
+				DE9E2E411EBBF41D0013F393 /* Misc */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -142,9 +156,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9E2E3E1EBBC82A0013F393 /* EmailValidation.swift in Sources */,
 				DEA8A2641EB2C7E200BC6F2D /* ForgotPasswordViewController.swift in Sources */,
 				DEA8A2621EB2567C00BC6F2D /* SignUpViewController.swift in Sources */,
 				DECCD6901EAF01C4001BD794 /* LoginViewController.swift in Sources */,
+				DE9E2E401EBBC8E60013F393 /* ErrorMessage.swift in Sources */,
 				DECCD68E1EAF01C4001BD794 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

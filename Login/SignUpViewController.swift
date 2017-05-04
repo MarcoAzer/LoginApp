@@ -29,13 +29,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         repeatPasswordTextField.isSecureTextEntry = state
     }
     
-    func showError(message: String, title: String){
-        let errorMessage = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        errorMessage.addAction(cancelAction)
-        self.present(errorMessage, animated: true, completion: nil)
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case emailTextField:
@@ -52,13 +45,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             print("Error: Should not happen")
         }
         return false
-    }
-    
-    func isValidEmail(email: String)->Bool {
-        // RegEx Source: emailregex.com
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: email)
     }
     
     @IBAction func toggleShowPassword(_ sender: UISwitch) {
@@ -79,7 +65,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         var errorMessageText = ""
         
         if email == "" || username == "" || password == "" || repeatPassword == "" {
-            errorMessageText = "Please fill in "
+            errorMessageText = "Please insert your "
             if email == "" {
                 errorMessageText += "email"
             }
@@ -92,22 +78,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             else if repeatPassword == "" {
                 errorMessageText += "repeated password"
             }
-            showError(message: errorMessageText, title: "Missing Fields!")
+            ErrorMessage.showError(self, message: errorMessageText, title: "Missing Field!")
         }
-        else if !isValidEmail(email: email){
-            errorMessageText = "Invalid Email"
-            showError(message: errorMessageText, title: "Invalid Input!")
+        else if !EmailValidation.isValidEmail(email: email){
+            errorMessageText = "Please insert a valid email"
+            ErrorMessage.showError(self, message: errorMessageText, title: "Invalid Input!")
         }
         else if password != repeatPassword {
             errorMessageText = "Passwords do not match"
-            showError(message: errorMessageText, title: "Mismatch Fields!")
+            ErrorMessage.showError(self, message: errorMessageText, title: "Mismatch Fields!")
         }
         else{
-            // TODO
-            // Check if username and email are unique
-            // Sign Up then open app
-            // Print error message if not unique
-            print("Signing up")
+            ErrorMessage.showError(self, message: "Signing up", title: "")
         }
     }
     

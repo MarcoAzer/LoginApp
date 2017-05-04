@@ -30,16 +30,17 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         let email = emailTextField.text!
         
         if email == "" {
-            let errorMessage = UIAlertController(title: "Missing Field!", message: "Please fill in email", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            errorMessage.addAction(cancelAction)
-            self.present(errorMessage, animated: true, completion: nil)
+            ErrorMessage.showError(self, message: "Please insert your email", title: "Missing Field!")
+        }
+        else if !EmailValidation.isValidEmail(email: email){
+            ErrorMessage.showError(self, message: "Please insert a valid email", title: "Invalid Input!")
         }
         else{
             // TODO
             // Check if email in database, send restore password email
             // Print a success message or failure emssage
-            print("Restoring password")
+            emailTextField.resignFirstResponder()
+            ErrorMessage.showError(self, message: "Restoring password", title: "")
         }
     }
     
